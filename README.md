@@ -22,7 +22,7 @@ Ubuntu (keep everything under your Linux home, **not** `/mnt/c`):
 
 ```bash
 mkdir -p ~/opcode-ws && cd ~/opcode-ws
-git clone https://github.com/opcode-labs/opcode-zephyr-training
+git clone https://github.com/OpCodeLab/opcode-zephyr-training.git
 ./opcode-zephyr-training/scripts/setup_wsl.sh      # asks which board you use
 ```
 
