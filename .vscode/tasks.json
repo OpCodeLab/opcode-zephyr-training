@@ -1,0 +1,38 @@
+{
+  // Terminal > Run Task...  (Ctrl+Shift+B runs "Build Lab 01")
+  "version": "2.0.0",
+  "options": {
+    "cwd": "${workspaceFolder}",
+    "shell": { "executable": "bash", "args": ["-c"] }
+  },
+  "tasks": [
+    {
+      "label": "Build Lab 01",
+      "type": "shell",
+      "command": "source ../env.sh && west build -b ${input:board} labs/01-blinky -d build/01-blinky",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Pristine build Lab 01",
+      "type": "shell",
+      "command": "source ../env.sh && west build -p always -b ${input:board} labs/01-blinky -d build/01-blinky",
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Flash Lab 01",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/01-blinky",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "board",
+      "type": "pickString",
+      "description": "Training board",
+      "options": ["stm32f4_disco", "nucleo_f446re", "nucleo_f429zi", "nucleo_g474re"],
+      "default": "stm32f4_disco"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# OpCode Labs - Zephyr RTOS training workspace manifest
+# Same manifest for WSL Ubuntu and native Linux (and Windows if needed).
+# Trainer: bump the Zephyr revision only after re-testing every lab.
+manifest:
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: v4.2.0
+      import:
+        # Only fetch what the STM32F4/G4 labs need (keeps west update fast and small).
+        # setup_wsl.sh then sparse-checks-out only the needed folders (LIGHT=1).
+        name-allowlist:
+          - cmsis
+          - cmsis_6
+          - hal_stm32
+
+  self:
+    path: opcode-zephyr-training

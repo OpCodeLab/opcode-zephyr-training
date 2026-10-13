@@ -1,0 +1,30 @@
+{
+  // WSL debug configs: open the repo with the VS Code "WSL" extension (run `code .` from Ubuntu)
+  // and install Cortex-Debug inside WSL. Thread view needs CONFIG_DEBUG_THREAD_INFO=y.
+  // Build first (Terminal > Run Build Task), with the same board.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "WSL: Debug Lab 01 (blinky)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/build/01-blinky/zephyr/zephyr.elf",
+      "servertype": "openocd",
+      "serverpath": "/usr/bin/openocd",
+      "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+      "configFiles": ["${workspaceFolder}/../zephyr/boards/st/${input:board}/support/openocd.cfg"],
+      "rtos": "Zephyr",
+      "runToEntryPoint": "main"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "board",
+      "type": "pickString",
+      "description": "Training board",
+      "options": ["stm32f4_disco", "nucleo_f446re", "nucleo_f429zi", "nucleo_g474re"],
+      "default": "stm32f4_disco"
+    }
+  ]
+}

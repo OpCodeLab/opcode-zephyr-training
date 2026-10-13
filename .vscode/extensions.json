@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "ms-vscode-remote.remote-wsl",
+    "marus25.cortex-debug",
+    "ms-vscode.cpptools",
+    "nordic-semiconductor.nrf-devicetree"
+  ]
+}
