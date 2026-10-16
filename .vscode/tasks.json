@@ -9,7 +9,7 @@
     {
       "label": "Build Lab 01",
       "type": "shell",
-      "command": "source ../env.sh && west build -b ${input:board} labs/01-blinky -d build/01-blinky",
+      "command": "scripts/build_lab.sh labs/01-blinky build/01-blinky ${input:board}",
       "group": { "kind": "build", "isDefault": true },
       "problemMatcher": ["$gcc"]
     },
@@ -23,6 +23,78 @@
       "label": "Flash Lab 01",
       "type": "shell",
       "command": "source ../env.sh && west flash -d build/01-blinky",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build RTOS 01-multitask",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/01-multitask build/rtos/01-multitask ${input:board}",
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Flash RTOS 01-multitask",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/rtos/01-multitask",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build RTOS 02-button-sem-queue",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/02-button-sem-queue build/rtos/02-button-sem-queue ${input:board}",
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Flash RTOS 02-button-sem-queue",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/rtos/02-button-sem-queue",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build RTOS 03-software-timer",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/03-software-timer build/rtos/03-software-timer ${input:board}",
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Flash RTOS 03-software-timer",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/rtos/03-software-timer",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build RTOS 04-rms-scheduling",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/04-rms-scheduling build/rtos/04-rms-scheduling ${input:board}",
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Flash RTOS 04-rms-scheduling",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/rtos/04-rms-scheduling",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build RTOS 05-uart-protocol",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/05-uart-protocol build/rtos/05-uart-protocol ${input:board}",
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Flash RTOS 05-uart-protocol",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/rtos/05-uart-protocol",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build RTOS 06-washing-machine",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/06-washing-machine build/rtos/06-washing-machine ${input:board}",
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Flash RTOS 06-washing-machine",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/rtos/06-washing-machine",
       "problemMatcher": []
     }
   ],
