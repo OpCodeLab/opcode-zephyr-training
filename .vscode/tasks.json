@@ -1,26 +1,40 @@
 {
-  // Terminal > Run Task...  (Ctrl+Shift+B runs "Build Lab 01")
+  // Terminal > Run Task...  (Ctrl+Shift+B runs "Build Lab 01 (blinky)")
+  // Each lab has 3 tasks, in lab order: Build, Pristine build, Flash.
+  // Generated list: keep the same order as .vscode/launch.json.
   "version": "2.0.0",
   "options": {
     "cwd": "${workspaceFolder}",
-    "shell": { "executable": "bash", "args": ["-c"] }
+    "shell": {
+      "executable": "bash",
+      "args": [
+        "-c"
+      ]
+    }
   },
   "tasks": [
     {
-      "label": "Build Lab 01",
+      "label": "Build Lab 01 (blinky)",
       "type": "shell",
       "command": "scripts/build_lab.sh labs/01-blinky build/01-blinky ${input:board}",
-      "group": { "kind": "build", "isDefault": true },
-      "problemMatcher": ["$gcc"]
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     },
     {
-      "label": "Pristine build Lab 01",
+      "label": "Pristine build Lab 01 (blinky)",
       "type": "shell",
-      "command": "source ../env.sh && west build -p always -b ${input:board} labs/01-blinky -d build/01-blinky",
-      "problemMatcher": ["$gcc"]
+      "command": "scripts/build_lab.sh labs/01-blinky build/01-blinky ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
     },
     {
-      "label": "Flash Lab 01",
+      "label": "Flash Lab 01 (blinky)",
       "type": "shell",
       "command": "source ../env.sh && west flash -d build/01-blinky",
       "problemMatcher": []
@@ -29,7 +43,17 @@
       "label": "Build RTOS 01-multitask",
       "type": "shell",
       "command": "scripts/build_lab.sh labs_rtos/01-multitask build/rtos/01-multitask ${input:board}",
-      "problemMatcher": ["$gcc"]
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Pristine build RTOS 01-multitask",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/01-multitask build/rtos/01-multitask ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
     },
     {
       "label": "Flash RTOS 01-multitask",
@@ -38,10 +62,42 @@
       "problemMatcher": []
     },
     {
+      "label": "Build RTOS 01-filesystem",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/01-filesystem build/rtos/01-filesystem ${input:board}",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Pristine build RTOS 01-filesystem",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/01-filesystem build/rtos/01-filesystem ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Flash RTOS 01-filesystem",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/rtos/01-filesystem",
+      "problemMatcher": []
+    },
+    {
       "label": "Build RTOS 02-button-sem-queue",
       "type": "shell",
       "command": "scripts/build_lab.sh labs_rtos/02-button-sem-queue build/rtos/02-button-sem-queue ${input:board}",
-      "problemMatcher": ["$gcc"]
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Pristine build RTOS 02-button-sem-queue",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/02-button-sem-queue build/rtos/02-button-sem-queue ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
     },
     {
       "label": "Flash RTOS 02-button-sem-queue",
@@ -53,7 +109,17 @@
       "label": "Build RTOS 03-software-timer",
       "type": "shell",
       "command": "scripts/build_lab.sh labs_rtos/03-software-timer build/rtos/03-software-timer ${input:board}",
-      "problemMatcher": ["$gcc"]
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Pristine build RTOS 03-software-timer",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/03-software-timer build/rtos/03-software-timer ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
     },
     {
       "label": "Flash RTOS 03-software-timer",
@@ -65,7 +131,17 @@
       "label": "Build RTOS 04-rms-scheduling",
       "type": "shell",
       "command": "scripts/build_lab.sh labs_rtos/04-rms-scheduling build/rtos/04-rms-scheduling ${input:board}",
-      "problemMatcher": ["$gcc"]
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Pristine build RTOS 04-rms-scheduling",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/04-rms-scheduling build/rtos/04-rms-scheduling ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
     },
     {
       "label": "Flash RTOS 04-rms-scheduling",
@@ -77,7 +153,17 @@
       "label": "Build RTOS 05-uart-protocol",
       "type": "shell",
       "command": "scripts/build_lab.sh labs_rtos/05-uart-protocol build/rtos/05-uart-protocol ${input:board}",
-      "problemMatcher": ["$gcc"]
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Pristine build RTOS 05-uart-protocol",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/05-uart-protocol build/rtos/05-uart-protocol ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
     },
     {
       "label": "Flash RTOS 05-uart-protocol",
@@ -89,12 +175,154 @@
       "label": "Build RTOS 06-washing-machine",
       "type": "shell",
       "command": "scripts/build_lab.sh labs_rtos/06-washing-machine build/rtos/06-washing-machine ${input:board}",
-      "problemMatcher": ["$gcc"]
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Pristine build RTOS 06-washing-machine",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/06-washing-machine build/rtos/06-washing-machine ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
     },
     {
       "label": "Flash RTOS 06-washing-machine",
       "type": "shell",
       "command": "source ../env.sh && west flash -d build/rtos/06-washing-machine",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build RTOS 09-shell",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/09-shell build/rtos/09-shell ${input:board}",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Pristine build RTOS 09-shell",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/09-shell build/rtos/09-shell ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Flash RTOS 09-shell",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/rtos/09-shell",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build RTOS 10_k_queue",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/10_k_queue build/rtos/10_k_queue ${input:board}",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Pristine build RTOS 10_k_queue",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/10_k_queue build/rtos/10_k_queue ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Flash RTOS 10_k_queue",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/rtos/10_k_queue",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build RTOS 11_k_msgq",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/11_k_msgq build/rtos/11_k_msgq ${input:board}",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Pristine build RTOS 11_k_msgq",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/11_k_msgq build/rtos/11_k_msgq ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Flash RTOS 11_k_msgq",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/rtos/11_k_msgq",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build RTOS 12_k_mbox",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/12_k_mbox build/rtos/12_k_mbox ${input:board}",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Pristine build RTOS 12_k_mbox",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/12_k_mbox build/rtos/12_k_mbox ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Flash RTOS 12_k_mbox",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/rtos/12_k_mbox",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build RTOS 13_zbus",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/13_zbus build/rtos/13_zbus ${input:board}",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Pristine build RTOS 13_zbus",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/13_zbus build/rtos/13_zbus ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Flash RTOS 13_zbus",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/rtos/13_zbus",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build RTOS 14_k_pipe",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/14_k_pipe build/rtos/14_k_pipe ${input:board}",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Pristine build RTOS 14_k_pipe",
+      "type": "shell",
+      "command": "scripts/build_lab.sh labs_rtos/14_k_pipe build/rtos/14_k_pipe ${input:board} -p always",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Flash RTOS 14_k_pipe",
+      "type": "shell",
+      "command": "source ../env.sh && west flash -d build/rtos/14_k_pipe",
       "problemMatcher": []
     }
   ],
@@ -103,7 +331,12 @@
       "id": "board",
       "type": "pickString",
       "description": "Training board",
-      "options": ["stm32f4_disco", "nucleo_f446re", "nucleo_f429zi", "nucleo_g474re"],
+      "options": [
+        "stm32f4_disco",
+        "nucleo_f446re",
+        "nucleo_f429zi",
+        "nucleo_g474re"
+      ],
       "default": "stm32f4_disco"
     }
   ]

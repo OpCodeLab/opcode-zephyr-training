@@ -3,24 +3,27 @@
   // and install Cortex-Debug inside WSL. Thread view needs CONFIG_DEBUG_THREAD_INFO=y.
   // Each config builds its lab first (asks for the board) via scripts/build_lab.sh,
   // which also links the board's openocd.cfg into the build dir.
+  // Same lab order as .vscode/tasks.json.
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "WSL: Debug Lab 01 (blinky)",
+      "name": "Debug Lab 01 (blinky)",
       "type": "cortex-debug",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "preLaunchTask": "Build Lab 01",
+      "preLaunchTask": "Build Lab 01 (blinky)",
       "executable": "${workspaceFolder}/build/01-blinky/zephyr/zephyr.elf",
       "servertype": "openocd",
       "serverpath": "/usr/bin/openocd",
       "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
-      "configFiles": ["${workspaceFolder}/build/01-blinky/openocd.cfg"],
+      "configFiles": [
+        "${workspaceFolder}/build/01-blinky/openocd.cfg"
+      ],
       "rtos": "Zephyr",
       "runToEntryPoint": "main"
     },
     {
-      "name": "WSL: Debug RTOS 01-multitask",
+      "name": "Debug RTOS 01-multitask",
       "type": "cortex-debug",
       "request": "launch",
       "cwd": "${workspaceFolder}",
@@ -29,12 +32,30 @@
       "servertype": "openocd",
       "serverpath": "/usr/bin/openocd",
       "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
-      "configFiles": ["${workspaceFolder}/build/rtos/01-multitask/openocd.cfg"],
+      "configFiles": [
+        "${workspaceFolder}/build/rtos/01-multitask/openocd.cfg"
+      ],
       "rtos": "Zephyr",
       "runToEntryPoint": "main"
     },
     {
-      "name": "WSL: Debug RTOS 02-button-sem-queue",
+      "name": "Debug RTOS 01-filesystem",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build RTOS 01-filesystem",
+      "executable": "${workspaceFolder}/build/rtos/01-filesystem/zephyr/zephyr.elf",
+      "servertype": "openocd",
+      "serverpath": "/usr/bin/openocd",
+      "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+      "configFiles": [
+        "${workspaceFolder}/build/rtos/01-filesystem/openocd.cfg"
+      ],
+      "rtos": "Zephyr",
+      "runToEntryPoint": "main"
+    },
+    {
+      "name": "Debug RTOS 02-button-sem-queue",
       "type": "cortex-debug",
       "request": "launch",
       "cwd": "${workspaceFolder}",
@@ -43,12 +64,14 @@
       "servertype": "openocd",
       "serverpath": "/usr/bin/openocd",
       "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
-      "configFiles": ["${workspaceFolder}/build/rtos/02-button-sem-queue/openocd.cfg"],
+      "configFiles": [
+        "${workspaceFolder}/build/rtos/02-button-sem-queue/openocd.cfg"
+      ],
       "rtos": "Zephyr",
       "runToEntryPoint": "main"
     },
     {
-      "name": "WSL: Debug RTOS 03-software-timer",
+      "name": "Debug RTOS 03-software-timer",
       "type": "cortex-debug",
       "request": "launch",
       "cwd": "${workspaceFolder}",
@@ -57,12 +80,14 @@
       "servertype": "openocd",
       "serverpath": "/usr/bin/openocd",
       "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
-      "configFiles": ["${workspaceFolder}/build/rtos/03-software-timer/openocd.cfg"],
+      "configFiles": [
+        "${workspaceFolder}/build/rtos/03-software-timer/openocd.cfg"
+      ],
       "rtos": "Zephyr",
       "runToEntryPoint": "main"
     },
     {
-      "name": "WSL: Debug RTOS 04-rms-scheduling",
+      "name": "Debug RTOS 04-rms-scheduling",
       "type": "cortex-debug",
       "request": "launch",
       "cwd": "${workspaceFolder}",
@@ -71,12 +96,14 @@
       "servertype": "openocd",
       "serverpath": "/usr/bin/openocd",
       "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
-      "configFiles": ["${workspaceFolder}/build/rtos/04-rms-scheduling/openocd.cfg"],
+      "configFiles": [
+        "${workspaceFolder}/build/rtos/04-rms-scheduling/openocd.cfg"
+      ],
       "rtos": "Zephyr",
       "runToEntryPoint": "main"
     },
     {
-      "name": "WSL: Debug RTOS 05-uart-protocol",
+      "name": "Debug RTOS 05-uart-protocol",
       "type": "cortex-debug",
       "request": "launch",
       "cwd": "${workspaceFolder}",
@@ -85,12 +112,14 @@
       "servertype": "openocd",
       "serverpath": "/usr/bin/openocd",
       "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
-      "configFiles": ["${workspaceFolder}/build/rtos/05-uart-protocol/openocd.cfg"],
+      "configFiles": [
+        "${workspaceFolder}/build/rtos/05-uart-protocol/openocd.cfg"
+      ],
       "rtos": "Zephyr",
       "runToEntryPoint": "main"
     },
     {
-      "name": "WSL: Debug RTOS 06-washing-machine",
+      "name": "Debug RTOS 06-washing-machine",
       "type": "cortex-debug",
       "request": "launch",
       "cwd": "${workspaceFolder}",
@@ -99,7 +128,105 @@
       "servertype": "openocd",
       "serverpath": "/usr/bin/openocd",
       "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
-      "configFiles": ["${workspaceFolder}/build/rtos/06-washing-machine/openocd.cfg"],
+      "configFiles": [
+        "${workspaceFolder}/build/rtos/06-washing-machine/openocd.cfg"
+      ],
+      "rtos": "Zephyr",
+      "runToEntryPoint": "main"
+    },
+    {
+      "name": "Debug RTOS 09-shell",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build RTOS 09-shell",
+      "executable": "${workspaceFolder}/build/rtos/09-shell/zephyr/zephyr.elf",
+      "servertype": "openocd",
+      "serverpath": "/usr/bin/openocd",
+      "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+      "configFiles": [
+        "${workspaceFolder}/build/rtos/09-shell/openocd.cfg"
+      ],
+      "rtos": "Zephyr",
+      "runToEntryPoint": "main"
+    },
+    {
+      "name": "Debug RTOS 10_k_queue",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build RTOS 10_k_queue",
+      "executable": "${workspaceFolder}/build/rtos/10_k_queue/zephyr/zephyr.elf",
+      "servertype": "openocd",
+      "serverpath": "/usr/bin/openocd",
+      "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+      "configFiles": [
+        "${workspaceFolder}/build/rtos/10_k_queue/openocd.cfg"
+      ],
+      "rtos": "Zephyr",
+      "runToEntryPoint": "main"
+    },
+    {
+      "name": "Debug RTOS 11_k_msgq",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build RTOS 11_k_msgq",
+      "executable": "${workspaceFolder}/build/rtos/11_k_msgq/zephyr/zephyr.elf",
+      "servertype": "openocd",
+      "serverpath": "/usr/bin/openocd",
+      "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+      "configFiles": [
+        "${workspaceFolder}/build/rtos/11_k_msgq/openocd.cfg"
+      ],
+      "rtos": "Zephyr",
+      "runToEntryPoint": "main"
+    },
+    {
+      "name": "Debug RTOS 12_k_mbox",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build RTOS 12_k_mbox",
+      "executable": "${workspaceFolder}/build/rtos/12_k_mbox/zephyr/zephyr.elf",
+      "servertype": "openocd",
+      "serverpath": "/usr/bin/openocd",
+      "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+      "configFiles": [
+        "${workspaceFolder}/build/rtos/12_k_mbox/openocd.cfg"
+      ],
+      "rtos": "Zephyr",
+      "runToEntryPoint": "main"
+    },
+    {
+      "name": "Debug RTOS 13_zbus",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build RTOS 13_zbus",
+      "executable": "${workspaceFolder}/build/rtos/13_zbus/zephyr/zephyr.elf",
+      "servertype": "openocd",
+      "serverpath": "/usr/bin/openocd",
+      "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+      "configFiles": [
+        "${workspaceFolder}/build/rtos/13_zbus/openocd.cfg"
+      ],
+      "rtos": "Zephyr",
+      "runToEntryPoint": "main"
+    },
+    {
+      "name": "Debug RTOS 14_k_pipe",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build RTOS 14_k_pipe",
+      "executable": "${workspaceFolder}/build/rtos/14_k_pipe/zephyr/zephyr.elf",
+      "servertype": "openocd",
+      "serverpath": "/usr/bin/openocd",
+      "gdbPath": "${userHome}/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+      "configFiles": [
+        "${workspaceFolder}/build/rtos/14_k_pipe/openocd.cfg"
+      ],
       "rtos": "Zephyr",
       "runToEntryPoint": "main"
     }
@@ -109,7 +236,12 @@
       "id": "board",
       "type": "pickString",
       "description": "Training board",
-      "options": ["stm32f4_disco", "nucleo_f446re", "nucleo_f429zi", "nucleo_g474re"],
+      "options": [
+        "stm32f4_disco",
+        "nucleo_f446re",
+        "nucleo_f429zi",
+        "nucleo_g474re"
+      ],
       "default": "stm32f4_disco"
     }
   ]

@@ -17,6 +17,7 @@ manifest:
           - cmsis
           - cmsis_6
           - hal_stm32
+          - littlefs        # labs_rtos/01-multitask: file system in internal flash
 
   self:
     path: opcode-zephyr-training

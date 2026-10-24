@@ -3,6 +3,7 @@
     "ms-vscode-remote.remote-wsl",
     "marus25.cortex-debug",
     "ms-vscode.cpptools",
-    "nordic-semiconductor.nrf-devicetree"
+    "nordic-semiconductor.nrf-devicetree",
+    "pomdtr.excalidraw-editor"
   ]
 }
